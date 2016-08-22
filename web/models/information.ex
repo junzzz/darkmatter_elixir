@@ -21,4 +21,13 @@ defmodule DarkmatterElixir.Information do
     model
     |> cast(params, @required_fields, @optional_fields)
   end
+
+  def valid_informations(query) do
+    now = :calendar.local_time
+    from i in query,
+    #where("(start_at is null and end_at is null) or (start_at <= :now) or (end_at >= :now)", now: now)
+    #.order(start_at: :desc)
+    where: "(start_at is null and end_at is null) or (start_at <= :now) or (end_at >= :now)"
+    #where i.
+  end
 end
