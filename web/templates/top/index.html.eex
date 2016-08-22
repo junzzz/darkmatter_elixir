@@ -1,0 +1,6 @@
+<dl>
+  <%= for i <- @infos do %>
+    <dt><%= i.title %></dt>
+    <dd><%= i.content %></dd>
+  <% end %>
+</dl>
